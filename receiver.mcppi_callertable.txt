@@ -1,0 +1,11 @@
+main
+	__CC2DW
+		____DoICP
+	reception
+		delay20us
+		delay725us
+		Div_16x16_S
+			Div_16x16_S_L
+		delay500us
+		lookup
+			delay3ms
