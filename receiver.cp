@@ -13,83 +13,83 @@ void lookup(int channel){
  switch(channel){
  case 0: PORTD.F0^=1;
  if(PORTD.F0==1){
-
+ transmitSignal(encodeSignal(0));
  }
  break;
 
  case 1: PORTD.F1^=1;
  if(PORTD.F1==1){
-
+ transmitSignal(encodeSignal(1));
  }
  break;
  case 2: PORTD.F2^=1;
  if(PORTD.F2==1){
-
+ transmitSignal(encodeSignal(2));
  }
  break;
  case 3: PORTD.F3^=1;
  if(PORTD.F3==1){
-
+ transmitSignal(encodeSignal(3));
  }
  break;
  case 4: PORTD.F4^=1;
  if(PORTD.F4==1){
-
+ transmitSignal(encodeSignal(4));
  }
  break;
  case 5: PORTD.F5^=1;
  if(PORTD.F5==1){
-
+ transmitSignal(encodeSignal(5));
  }
  break;
  case 6: PORTD.F6^=1;
  if(PORTD.F6==1){
-
+ transmitSignal(encodeSignal(6));
  }
  break;
  case 7: PORTD.F7^=1;
  if(PORTD.F7==1){
-
+ transmitSignal(encodeSignal(7));
  }
  break;
  case 8: PORTC.F0^=1;
  if(PORTC.F0==1){
-
+ transmitSignal(encodeSignal(8));
  }
  break;
  case 9: PORTC.F1^=1;
  if(PORTC.F1==1){
-
+ transmitSignal(encodeSignal(9));
  }
  break;
  case 10: PORTC.F2^=1;
  if(PORTC.F2==1){
-
+ transmitSignal(encodeSignal(10));
  }
  break;
  case 11: PORTC.F3^=1;
  if(PORTC.F3==1){
-
+ transmitSignal(encodeSignal(11));
  }
  break;
  case 12: PORTC.F4^=1;
  if(PORTC.F4==1){
-
+ transmitSignal(encodeSignal(12));
  }
  break;
  case 13: PORTC.F5^=1;
  if(PORTC.F5==1){
-
+ transmitSignal(encodeSignal(13));
  }
  break;
  case 14: PORTC.F6^=1;
  if(PORTC.F6==1){
-
+ transmitSignal(encodeSignal(14));
  }
  break;
  case 15: PORTC.F7^=1;
  if(PORTC.F7==1){
-
+ transmitSignal(encodeSignal(15));
  }
  break;
  }
@@ -226,6 +226,37 @@ void reception(){
 
  lookup(decoded_signal);
  }
+
+}
+
+void preamble(){
+ int i;
+ for(i=0; i<20; i++){
+ PORTB.F2=1;
+ delay500us();
+ PORTB.F2=0;
+ delay500us();
+ }
+}
+
+void transmitSignal(int signal){
+
+ int j;
+ delay3ms();
+ preamble();
+ PORTB.F2=1;
+ delay3ms();
+ PORTB.F2=0;
+ delay500us();
+ for(j=7; j>=0; j--){
+ if(bitRead(signal,j)!=0){
+ PORTB.F2=1;
+ }else{
+ PORTB.F2=0;
+ }
+ delay500us();
+ }
+ PORTB.F2=0;
 
 }
 

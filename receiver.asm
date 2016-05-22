@@ -11,6 +11,15 @@ L_lookup2:
 ;receiver.c,14 :: 		if(PORTD.F0==1){
 	BTFSS      PORTD+0, 0
 	GOTO       L_lookup3
+;receiver.c,15 :: 		transmitSignal(encodeSignal(0));
+	CLRF       FARG_encodeSignal_k+0
+	CLRF       FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,16 :: 		}
 L_lookup3:
 ;receiver.c,17 :: 		break;
@@ -22,6 +31,17 @@ L_lookup4:
 ;receiver.c,20 :: 		if(PORTD.F1==1){
 	BTFSS      PORTD+0, 1
 	GOTO       L_lookup5
+;receiver.c,21 :: 		transmitSignal(encodeSignal(1));
+	MOVLW      1
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,22 :: 		}
 L_lookup5:
 ;receiver.c,23 :: 		break;
@@ -33,6 +53,17 @@ L_lookup6:
 ;receiver.c,25 :: 		if(PORTD.F2==1){
 	BTFSS      PORTD+0, 2
 	GOTO       L_lookup7
+;receiver.c,26 :: 		transmitSignal(encodeSignal(2));
+	MOVLW      2
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,27 :: 		}
 L_lookup7:
 ;receiver.c,28 :: 		break;
@@ -44,6 +75,17 @@ L_lookup8:
 ;receiver.c,30 :: 		if(PORTD.F3==1){
 	BTFSS      PORTD+0, 3
 	GOTO       L_lookup9
+;receiver.c,31 :: 		transmitSignal(encodeSignal(3));
+	MOVLW      3
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,32 :: 		}
 L_lookup9:
 ;receiver.c,33 :: 		break;
@@ -55,6 +97,17 @@ L_lookup10:
 ;receiver.c,35 :: 		if(PORTD.F4==1){
 	BTFSS      PORTD+0, 4
 	GOTO       L_lookup11
+;receiver.c,36 :: 		transmitSignal(encodeSignal(4));
+	MOVLW      4
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,37 :: 		}
 L_lookup11:
 ;receiver.c,38 :: 		break;
@@ -66,6 +119,17 @@ L_lookup12:
 ;receiver.c,40 :: 		if(PORTD.F5==1){
 	BTFSS      PORTD+0, 5
 	GOTO       L_lookup13
+;receiver.c,41 :: 		transmitSignal(encodeSignal(5));
+	MOVLW      5
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,42 :: 		}
 L_lookup13:
 ;receiver.c,43 :: 		break;
@@ -77,6 +141,17 @@ L_lookup14:
 ;receiver.c,45 :: 		if(PORTD.F6==1){
 	BTFSS      PORTD+0, 6
 	GOTO       L_lookup15
+;receiver.c,46 :: 		transmitSignal(encodeSignal(6));
+	MOVLW      6
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,47 :: 		}
 L_lookup15:
 ;receiver.c,48 :: 		break;
@@ -88,6 +163,17 @@ L_lookup16:
 ;receiver.c,50 :: 		if(PORTD.F7==1){
 	BTFSS      PORTD+0, 7
 	GOTO       L_lookup17
+;receiver.c,51 :: 		transmitSignal(encodeSignal(7));
+	MOVLW      7
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,52 :: 		}
 L_lookup17:
 ;receiver.c,53 :: 		break;
@@ -99,6 +185,17 @@ L_lookup18:
 ;receiver.c,55 :: 		if(PORTC.F0==1){
 	BTFSS      PORTC+0, 0
 	GOTO       L_lookup19
+;receiver.c,56 :: 		transmitSignal(encodeSignal(8));
+	MOVLW      8
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,57 :: 		}
 L_lookup19:
 ;receiver.c,58 :: 		break;
@@ -110,6 +207,17 @@ L_lookup20:
 ;receiver.c,60 :: 		if(PORTC.F1==1){
 	BTFSS      PORTC+0, 1
 	GOTO       L_lookup21
+;receiver.c,61 :: 		transmitSignal(encodeSignal(9));
+	MOVLW      9
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,62 :: 		}
 L_lookup21:
 ;receiver.c,63 :: 		break;
@@ -121,6 +229,17 @@ L_lookup22:
 ;receiver.c,65 :: 		if(PORTC.F2==1){
 	BTFSS      PORTC+0, 2
 	GOTO       L_lookup23
+;receiver.c,66 :: 		transmitSignal(encodeSignal(10));
+	MOVLW      10
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,67 :: 		}
 L_lookup23:
 ;receiver.c,68 :: 		break;
@@ -132,6 +251,17 @@ L_lookup24:
 ;receiver.c,70 :: 		if(PORTC.F3==1){
 	BTFSS      PORTC+0, 3
 	GOTO       L_lookup25
+;receiver.c,71 :: 		transmitSignal(encodeSignal(11));
+	MOVLW      11
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,72 :: 		}
 L_lookup25:
 ;receiver.c,73 :: 		break;
@@ -143,6 +273,17 @@ L_lookup26:
 ;receiver.c,75 :: 		if(PORTC.F4==1){
 	BTFSS      PORTC+0, 4
 	GOTO       L_lookup27
+;receiver.c,76 :: 		transmitSignal(encodeSignal(12));
+	MOVLW      12
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,77 :: 		}
 L_lookup27:
 ;receiver.c,78 :: 		break;
@@ -154,6 +295,17 @@ L_lookup28:
 ;receiver.c,80 :: 		if(PORTC.F5==1){
 	BTFSS      PORTC+0, 5
 	GOTO       L_lookup29
+;receiver.c,81 :: 		transmitSignal(encodeSignal(13));
+	MOVLW      13
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,82 :: 		}
 L_lookup29:
 ;receiver.c,83 :: 		break;
@@ -165,6 +317,17 @@ L_lookup30:
 ;receiver.c,85 :: 		if(PORTC.F6==1){
 	BTFSS      PORTC+0, 6
 	GOTO       L_lookup31
+;receiver.c,86 :: 		transmitSignal(encodeSignal(14));
+	MOVLW      14
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,87 :: 		}
 L_lookup31:
 ;receiver.c,88 :: 		break;
@@ -176,6 +339,17 @@ L_lookup32:
 ;receiver.c,90 :: 		if(PORTC.F7==1){
 	BTFSS      PORTC+0, 7
 	GOTO       L_lookup33
+;receiver.c,91 :: 		transmitSignal(encodeSignal(15));
+	MOVLW      15
+	MOVWF      FARG_encodeSignal_k+0
+	MOVLW      0
+	MOVWF      FARG_encodeSignal_k+1
+	CALL       _encodeSignal+0
+	MOVF       R0+0, 0
+	MOVWF      FARG_transmitSignal_m+0
+	MOVF       R0+1, 0
+	MOVWF      FARG_transmitSignal_m+1
+	CALL       _transmitSignal+0
 ;receiver.c,92 :: 		}
 L_lookup33:
 ;receiver.c,93 :: 		break;
@@ -185,145 +359,145 @@ L_lookup0:
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup74
+	GOTO       L__lookup82
 	MOVLW      0
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup74:
+L__lookup82:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup2
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup75
+	GOTO       L__lookup83
 	MOVLW      1
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup75:
+L__lookup83:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup4
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup76
+	GOTO       L__lookup84
 	MOVLW      2
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup76:
+L__lookup84:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup6
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup77
+	GOTO       L__lookup85
 	MOVLW      3
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup77:
+L__lookup85:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup8
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup78
+	GOTO       L__lookup86
 	MOVLW      4
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup78:
+L__lookup86:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup10
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup79
+	GOTO       L__lookup87
 	MOVLW      5
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup79:
+L__lookup87:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup12
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup80
+	GOTO       L__lookup88
 	MOVLW      6
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup80:
+L__lookup88:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup14
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup81
+	GOTO       L__lookup89
 	MOVLW      7
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup81:
+L__lookup89:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup16
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup82
+	GOTO       L__lookup90
 	MOVLW      8
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup82:
+L__lookup90:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup18
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup83
+	GOTO       L__lookup91
 	MOVLW      9
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup83:
+L__lookup91:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup20
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup84
+	GOTO       L__lookup92
 	MOVLW      10
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup84:
+L__lookup92:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup22
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup85
+	GOTO       L__lookup93
 	MOVLW      11
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup85:
+L__lookup93:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup24
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup86
+	GOTO       L__lookup94
 	MOVLW      12
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup86:
+L__lookup94:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup26
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup87
+	GOTO       L__lookup95
 	MOVLW      13
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup87:
+L__lookup95:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup28
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup88
+	GOTO       L__lookup96
 	MOVLW      14
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup88:
+L__lookup96:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup30
 	MOVLW      0
 	XORWF      FARG_lookup_channel+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__lookup89
+	GOTO       L__lookup97
 	MOVLW      15
 	XORWF      FARG_lookup_channel+0, 0
-L__lookup89:
+L__lookup97:
 	BTFSC      STATUS+0, 2
 	GOTO       L_lookup32
 L_lookup1:
@@ -350,15 +524,15 @@ _bitRead:
 	MOVF       _bitManipulate+1, 0
 	MOVWF      R0+1
 	MOVF       R2+0, 0
-L__bitRead91:
+L__bitRead99:
 	BTFSC      STATUS+0, 2
-	GOTO       L__bitRead92
+	GOTO       L__bitRead100
 	RLF        R0+0, 1
 	RLF        R0+1, 1
 	BCF        R0+0, 0
 	ADDLW      255
-	GOTO       L__bitRead91
-L__bitRead92:
+	GOTO       L__bitRead99
+L__bitRead100:
 	MOVF       R0+0, 0
 	MOVWF      _bitManipulate+0
 	MOVF       R0+1, 0
@@ -384,15 +558,15 @@ _bitWrite:
 	MOVF       FARG_bitWrite_shifts+1, 0
 	MOVWF      R0+1
 	MOVF       R2+0, 0
-L__bitWrite94:
+L__bitWrite102:
 	BTFSC      STATUS+0, 2
-	GOTO       L__bitWrite95
+	GOTO       L__bitWrite103
 	RLF        R0+0, 1
 	RLF        R0+1, 1
 	BCF        R0+0, 0
 	ADDLW      255
-	GOTO       L__bitWrite94
-L__bitWrite95:
+	GOTO       L__bitWrite102
+L__bitWrite103:
 	MOVF       R0+0, 0
 	MOVWF      FARG_bitWrite_shifts+0
 	MOVF       R0+1, 0
@@ -441,10 +615,10 @@ L_delay3ms36:
 	MOVLW      0
 	XORWF      _counter+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__delay3ms97
+	GOTO       L__delay3ms105
 	MOVLW      93
 	XORWF      _counter+0, 0
-L__delay3ms97:
+L__delay3ms105:
 	BTFSS      STATUS+0, 2
 	GOTO       L_delay3ms37
 	GOTO       L_delay3ms35
@@ -489,10 +663,10 @@ L_delay500us40:
 	MOVLW      0
 	XORWF      _counter+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__delay500us99
+	GOTO       L__delay500us107
 	MOVLW      15
 	XORWF      _counter+0, 0
-L__delay500us99:
+L__delay500us107:
 	BTFSS      STATUS+0, 2
 	GOTO       L_delay500us41
 	GOTO       L_delay500us39
@@ -537,10 +711,10 @@ L_delay725us44:
 	MOVLW      0
 	XORWF      _counter+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__delay725us101
+	GOTO       L__delay725us109
 	MOVLW      23
 	XORWF      _counter+0, 0
-L__delay725us101:
+L__delay725us109:
 	BTFSS      STATUS+0, 2
 	GOTO       L_delay725us45
 	GOTO       L_delay725us43
@@ -585,10 +759,10 @@ L_delay20us48:
 	MOVLW      0
 	XORWF      _counter+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__delay20us103
+	GOTO       L__delay20us111
 	MOVLW      6
 	XORWF      _counter+0, 0
-L__delay20us103:
+L__delay20us111:
 	BTFSS      STATUS+0, 2
 	GOTO       L_delay20us49
 	GOTO       L_delay20us47
@@ -617,10 +791,10 @@ L_reception50:
 	MOVLW      128
 	SUBWF      R0+0, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__reception105
+	GOTO       L__reception113
 	MOVLW      10
 	SUBWF      reception_i_L0+0, 0
-L__reception105:
+L__reception113:
 	BTFSC      STATUS+0, 0
 	GOTO       L_reception51
 ;receiver.c,182 :: 		delay20us();
@@ -654,10 +828,10 @@ L_reception51:
 	MOVLW      0
 	XORWF      _good+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__reception106
+	GOTO       L__reception114
 	MOVLW      1
 	XORWF      _good+0, 0
-L__reception106:
+L__reception114:
 	BTFSS      STATUS+0, 2
 	GOTO       L_reception54
 ;receiver.c,191 :: 		while(1){
@@ -677,10 +851,10 @@ L_reception58:
 	MOVLW      128
 	SUBWF      R0+0, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__reception107
+	GOTO       L__reception115
 	MOVLW      8
 	SUBWF      reception_i_L0+0, 0
-L__reception107:
+L__reception115:
 	BTFSC      STATUS+0, 0
 	GOTO       L_reception59
 ;receiver.c,196 :: 		test=i%2;
@@ -708,10 +882,10 @@ L__reception107:
 	MOVLW      0
 	XORWF      _test+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__reception108
+	GOTO       L__reception116
 	MOVLW      0
 	XORWF      _test+0, 0
-L__reception108:
+L__reception116:
 	BTFSS      STATUS+0, 2
 	GOTO       L_reception62
 ;receiver.c,200 :: 		decoded_signal^=0x01;
@@ -734,10 +908,10 @@ L_reception61:
 	MOVLW      0
 	XORWF      _test+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__reception109
+	GOTO       L__reception117
 	MOVLW      0
 	XORWF      _test+0, 0
-L__reception109:
+L__reception117:
 	BTFSS      STATUS+0, 2
 	GOTO       L_reception64
 ;receiver.c,207 :: 		decoded_signal^=0x00;
@@ -796,66 +970,183 @@ L_end_reception:
 	RETURN
 ; end of _reception
 
+_preamble:
+
+;receiver.c,231 :: 		void preamble(){
+;receiver.c,233 :: 		for(i=0; i<20; i++){
+	CLRF       preamble_i_L0+0
+	CLRF       preamble_i_L0+1
+L_preamble65:
+	MOVLW      128
+	XORWF      preamble_i_L0+1, 0
+	MOVWF      R0+0
+	MOVLW      128
+	SUBWF      R0+0, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__preamble119
+	MOVLW      20
+	SUBWF      preamble_i_L0+0, 0
+L__preamble119:
+	BTFSC      STATUS+0, 0
+	GOTO       L_preamble66
+;receiver.c,234 :: 		PORTB.F2=1;
+	BSF        PORTB+0, 2
+;receiver.c,235 :: 		delay500us();
+	CALL       _delay500us+0
+;receiver.c,236 :: 		PORTB.F2=0;
+	BCF        PORTB+0, 2
+;receiver.c,237 :: 		delay500us();
+	CALL       _delay500us+0
+;receiver.c,233 :: 		for(i=0; i<20; i++){
+	INCF       preamble_i_L0+0, 1
+	BTFSC      STATUS+0, 2
+	INCF       preamble_i_L0+1, 1
+;receiver.c,238 :: 		}
+	GOTO       L_preamble65
+L_preamble66:
+;receiver.c,239 :: 		}
+L_end_preamble:
+	RETURN
+; end of _preamble
+
+_transmitSignal:
+
+;receiver.c,241 :: 		void transmitSignal(int signal){
+;receiver.c,244 :: 		delay3ms();
+	CALL       _delay3ms+0
+;receiver.c,245 :: 		preamble();
+	CALL       _preamble+0
+;receiver.c,246 :: 		PORTB.F2=1;
+	BSF        PORTB+0, 2
+;receiver.c,247 :: 		delay3ms();
+	CALL       _delay3ms+0
+;receiver.c,248 :: 		PORTB.F2=0;
+	BCF        PORTB+0, 2
+;receiver.c,249 :: 		delay500us();
+	CALL       _delay500us+0
+;receiver.c,250 :: 		for(j=7; j>=0; j--){
+	MOVLW      7
+	MOVWF      transmitSignal_j_L0+0
+	MOVLW      0
+	MOVWF      transmitSignal_j_L0+1
+L_transmitSignal68:
+	MOVLW      128
+	XORWF      transmitSignal_j_L0+1, 0
+	MOVWF      R0+0
+	MOVLW      128
+	SUBWF      R0+0, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__transmitSignal121
+	MOVLW      0
+	SUBWF      transmitSignal_j_L0+0, 0
+L__transmitSignal121:
+	BTFSS      STATUS+0, 0
+	GOTO       L_transmitSignal69
+;receiver.c,251 :: 		if(bitRead(signal,j)!=0){
+	MOVF       FARG_transmitSignal_signal+0, 0
+	MOVWF      FARG_bitRead_signal+0
+	MOVF       FARG_transmitSignal_signal+1, 0
+	MOVWF      FARG_bitRead_signal+1
+	MOVF       transmitSignal_j_L0+0, 0
+	MOVWF      FARG_bitRead_bitPosition+0
+	MOVF       transmitSignal_j_L0+1, 0
+	MOVWF      FARG_bitRead_bitPosition+1
+	CALL       _bitRead+0
+	MOVLW      0
+	XORWF      R0+1, 0
+	BTFSS      STATUS+0, 2
+	GOTO       L__transmitSignal122
+	MOVLW      0
+	XORWF      R0+0, 0
+L__transmitSignal122:
+	BTFSC      STATUS+0, 2
+	GOTO       L_transmitSignal71
+;receiver.c,252 :: 		PORTB.F2=1;
+	BSF        PORTB+0, 2
+;receiver.c,253 :: 		}else{
+	GOTO       L_transmitSignal72
+L_transmitSignal71:
+;receiver.c,254 :: 		PORTB.F2=0;
+	BCF        PORTB+0, 2
+;receiver.c,255 :: 		}
+L_transmitSignal72:
+;receiver.c,256 :: 		delay500us();
+	CALL       _delay500us+0
+;receiver.c,250 :: 		for(j=7; j>=0; j--){
+	MOVLW      1
+	SUBWF      transmitSignal_j_L0+0, 1
+	BTFSS      STATUS+0, 0
+	DECF       transmitSignal_j_L0+1, 1
+;receiver.c,257 :: 		}
+	GOTO       L_transmitSignal68
+L_transmitSignal69:
+;receiver.c,258 :: 		PORTB.F2=0;
+	BCF        PORTB+0, 2
+;receiver.c,260 :: 		}
+L_end_transmitSignal:
+	RETURN
+; end of _transmitSignal
+
 _main:
 
-;receiver.c,231 :: 		void main() {
-;receiver.c,232 :: 		TRISD=0x00;
+;receiver.c,262 :: 		void main() {
+;receiver.c,263 :: 		TRISD=0x00;
 	CLRF       TRISD+0
-;receiver.c,233 :: 		TRISB=0x01;
+;receiver.c,264 :: 		TRISB=0x01;
 	MOVLW      1
 	MOVWF      TRISB+0
-;receiver.c,234 :: 		TRISC=0;
+;receiver.c,265 :: 		TRISC=0;
 	CLRF       TRISC+0
-;receiver.c,235 :: 		PORTC=0;
+;receiver.c,266 :: 		PORTC=0;
 	CLRF       PORTC+0
-;receiver.c,236 :: 		PORTB=0;
+;receiver.c,267 :: 		PORTB=0;
 	CLRF       PORTB+0
-;receiver.c,237 :: 		PORTD=0;
+;receiver.c,268 :: 		PORTD=0;
 	CLRF       PORTD+0
-;receiver.c,238 :: 		while(1){
-L_main65:
-;receiver.c,239 :: 		PORTB=0;
+;receiver.c,269 :: 		while(1){
+L_main73:
+;receiver.c,270 :: 		PORTB=0;
 	CLRF       PORTB+0
-;receiver.c,240 :: 		if(PORTB.F0==1){
+;receiver.c,271 :: 		if(PORTB.F0==1){
 	BTFSS      PORTB+0, 0
-	GOTO       L_main67
-;receiver.c,241 :: 		encodedSignal=0;
+	GOTO       L_main75
+;receiver.c,272 :: 		encodedSignal=0;
 	CLRF       _encodedSignal+0
 	CLRF       _encodedSignal+1
-;receiver.c,242 :: 		reception();
+;receiver.c,273 :: 		reception();
 	CALL       _reception+0
-;receiver.c,244 :: 		}
-L_main67:
-;receiver.c,245 :: 		}
-	GOTO       L_main65
-;receiver.c,246 :: 		}
+;receiver.c,275 :: 		}
+L_main75:
+;receiver.c,276 :: 		}
+	GOTO       L_main73
+;receiver.c,277 :: 		}
 L_end_main:
 	GOTO       $+0
 ; end of _main
 
 _encodeSignal:
 
-;receiver.c,252 :: 		int encodeSignal(int rawSignal){
-;receiver.c,254 :: 		int encodedSignal=0x00;
+;receiver.c,283 :: 		int encodeSignal(int rawSignal){
+;receiver.c,285 :: 		int encodedSignal=0x00;
 	CLRF       encodeSignal_encodedSignal_L0+0
 	CLRF       encodeSignal_encodedSignal_L0+1
-;receiver.c,255 :: 		for(i=0; i<4; i++){
+;receiver.c,286 :: 		for(i=0; i<4; i++){
 	CLRF       R3+0
 	CLRF       R3+1
-L_encodeSignal68:
+L_encodeSignal76:
 	MOVLW      128
 	XORWF      R3+1, 0
 	MOVWF      R0+0
 	MOVLW      128
 	SUBWF      R0+0, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__encodeSignal112
+	GOTO       L__encodeSignal125
 	MOVLW      4
 	SUBWF      R3+0, 0
-L__encodeSignal112:
+L__encodeSignal125:
 	BTFSC      STATUS+0, 0
-	GOTO       L_encodeSignal69
-;receiver.c,256 :: 		if((rawSignal&0x08)==0x08){
+	GOTO       L_encodeSignal77
+;receiver.c,287 :: 		if((rawSignal&0x08)==0x08){
 	MOVLW      8
 	ANDWF      FARG_encodeSignal_rawSignal+0, 0
 	MOVWF      R1+0
@@ -866,53 +1157,53 @@ L__encodeSignal112:
 	MOVLW      0
 	XORWF      R1+1, 0
 	BTFSS      STATUS+0, 2
-	GOTO       L__encodeSignal113
+	GOTO       L__encodeSignal126
 	MOVLW      8
 	XORWF      R1+0, 0
-L__encodeSignal113:
+L__encodeSignal126:
 	BTFSS      STATUS+0, 2
-	GOTO       L_encodeSignal71
-;receiver.c,257 :: 		encodedSignal^=0x02;
+	GOTO       L_encodeSignal79
+;receiver.c,288 :: 		encodedSignal^=0x02;
 	MOVLW      2
 	XORWF      encodeSignal_encodedSignal_L0+0, 1
 	MOVLW      0
 	XORWF      encodeSignal_encodedSignal_L0+1, 1
-;receiver.c,258 :: 		encodedSignal<<=2;
+;receiver.c,289 :: 		encodedSignal<<=2;
 	RLF        encodeSignal_encodedSignal_L0+0, 1
 	RLF        encodeSignal_encodedSignal_L0+1, 1
 	BCF        encodeSignal_encodedSignal_L0+0, 0
 	RLF        encodeSignal_encodedSignal_L0+0, 1
 	RLF        encodeSignal_encodedSignal_L0+1, 1
 	BCF        encodeSignal_encodedSignal_L0+0, 0
-;receiver.c,259 :: 		}else{
-	GOTO       L_encodeSignal72
-L_encodeSignal71:
-;receiver.c,260 :: 		encodedSignal^=0x01;
+;receiver.c,290 :: 		}else{
+	GOTO       L_encodeSignal80
+L_encodeSignal79:
+;receiver.c,291 :: 		encodedSignal^=0x01;
 	MOVLW      1
 	XORWF      encodeSignal_encodedSignal_L0+0, 1
 	MOVLW      0
 	XORWF      encodeSignal_encodedSignal_L0+1, 1
-;receiver.c,261 :: 		encodedSignal<<=2;
+;receiver.c,292 :: 		encodedSignal<<=2;
 	RLF        encodeSignal_encodedSignal_L0+0, 1
 	RLF        encodeSignal_encodedSignal_L0+1, 1
 	BCF        encodeSignal_encodedSignal_L0+0, 0
 	RLF        encodeSignal_encodedSignal_L0+0, 1
 	RLF        encodeSignal_encodedSignal_L0+1, 1
 	BCF        encodeSignal_encodedSignal_L0+0, 0
-;receiver.c,262 :: 		}
-L_encodeSignal72:
-;receiver.c,264 :: 		rawSignal=rawSignal<<1;
+;receiver.c,293 :: 		}
+L_encodeSignal80:
+;receiver.c,295 :: 		rawSignal=rawSignal<<1;
 	RLF        FARG_encodeSignal_rawSignal+0, 1
 	RLF        FARG_encodeSignal_rawSignal+1, 1
 	BCF        FARG_encodeSignal_rawSignal+0, 0
-;receiver.c,255 :: 		for(i=0; i<4; i++){
+;receiver.c,286 :: 		for(i=0; i<4; i++){
 	INCF       R3+0, 1
 	BTFSC      STATUS+0, 2
 	INCF       R3+1, 1
-;receiver.c,265 :: 		}
-	GOTO       L_encodeSignal68
-L_encodeSignal69:
-;receiver.c,266 :: 		return encodedSignal>>2;
+;receiver.c,296 :: 		}
+	GOTO       L_encodeSignal76
+L_encodeSignal77:
+;receiver.c,297 :: 		return encodedSignal>>2;
 	MOVF       encodeSignal_encodedSignal_L0+0, 0
 	MOVWF      R0+0
 	MOVF       encodeSignal_encodedSignal_L0+1, 0
@@ -927,7 +1218,7 @@ L_encodeSignal69:
 	BCF        R0+1, 7
 	BTFSC      R0+1, 6
 	BSF        R0+1, 7
-;receiver.c,267 :: 		}
+;receiver.c,298 :: 		}
 L_end_encodeSignal:
 	RETURN
 ; end of _encodeSignal

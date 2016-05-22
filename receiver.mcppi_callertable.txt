@@ -8,4 +8,11 @@ main
 			Div_16x16_S_L
 		delay500us
 		lookup
+			encodeSignal
+			transmitSignal
+				delay3ms
+				preamble
+					delay500us
+				delay500us
+				bitRead
 			delay3ms

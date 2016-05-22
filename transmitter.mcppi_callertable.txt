@@ -42,6 +42,28 @@ main
 			delay3ms
 			delay500us
 			bitRead
+			reception
+				delay20us
+				delay725us
+				Div_16x16_S
+					Div_16x16_S_L
+				delay500us
+			delay20us
+			ack
+				Lcd_Cmd
+					Delay_1us
+					Delay_5500us
+					Delay_50us
+				Lcd_Out
+					Lcd_Cmd
+						Delay_1us
+						Delay_5500us
+						Delay_50us
+					Lcd_Chr_CP
+						Lcd_Cmd
+							Delay_1us
+							Delay_5500us
+							Delay_50us
 			initial
 				Lcd_Cmd
 					Delay_1us

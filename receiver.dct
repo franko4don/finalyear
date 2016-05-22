@@ -655,6 +655,7 @@ portd
 porte
 pow
 pr2
+preamble
 ps0
 ps0_bit
 ps1
@@ -1232,6 +1233,7 @@ tp_init
 tp_press_detect
 tp_set_adc_threshold
 tp_set_calibration_consts
+transmitsignal
 trisa
 trisa0
 trisa0_bit

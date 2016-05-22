@@ -159,6 +159,7 @@ _spi_t6963c_vertical
 _t6963c_horizontal
 _t6963c_vertical
 abs
+ack
 ackdt
 ackdt_bit
 acken
@@ -292,6 +293,7 @@ cf_read_sector
 cf_write_byte
 cf_write_init
 cf_write_sector
+channel
 character8x7
 chs0
 chs0_bit
@@ -353,6 +355,7 @@ dc
 dc_bit
 dec2bcd
 dec2bcd16
+decoded_signal
 delay_100ms
 delay_10ms
 delay_10us
@@ -533,6 +536,7 @@ keypad_init
 keypad_key_click
 keypad_key_press
 labs
+lastsignal
 lcd_chr
 lcd_chr_cp
 lcd_cmd
@@ -807,6 +811,7 @@ re2
 re2_bit
 read_write
 read_write_bit
+reception
 res032
 rp0
 rp0_bit

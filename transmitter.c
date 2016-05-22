@@ -21,6 +21,14 @@ int counter;
 int good;
 int bitManipulate;
 int test;
+int lastSignal;
+int decoded_signal ;
+void reception();
+char *channel;
+
+
+
+
 
 void delay725us(){
       counter=0;
@@ -65,10 +73,20 @@ void initial(){
 }
 
 void show(char value[]){
+     channel=value;
      Lcd_Out(1,1,msg1);
      Lcd_Out(1,10,value);
      Lcd_Out(1,12,msg3);
      Lcd_Out(2,1,msg2);
+}
+
+
+void ack(char value[],char state[]){
+     Lcd_Cmd(_LCD_CLEAR);
+     Lcd_Out(1,1,msg1);
+     Lcd_Out(1,10,value);
+     Lcd_Out(1,12,msg3);
+     Lcd_Out(2,8,state);
 }
 
 void scan();
@@ -113,6 +131,56 @@ void delay500us(){
 
 }
 
+void reception(){
+     int i;
+     decoded_signal=0;
+     for(i=0; i<10; i++){
+        delay20us();
+        good=1;
+        if(PORTD.F4==0){
+           good=0;
+           i=100;
+        }
+     }
+
+     if(good==1){
+        while(1){
+           if(PORTD.F4==0){
+              delay725us();
+
+              for(i=0; i<8; i++){
+              test=i%2;
+
+              if(PORTD.F4==1){
+              if(test==0){
+                 decoded_signal^=0x01;
+                 decoded_signal<<=1;
+
+                 }
+                 PORTD.F5=1;
+              }else{
+              if(test==0){
+                 decoded_signal^=0x00;
+                 decoded_signal<<=1;
+
+               }
+              PORTD.F5=0;
+              }
+
+           delay500us();
+
+           }
+        break;
+           }
+        }
+
+        decoded_signal>>=1;
+       PORTD.F4=0;
+     }
+
+}
+
+
 void preamble(){
      int i;
       for(i=0; i<20; i++){
@@ -126,7 +194,7 @@ void preamble(){
 
 
 void transmitSignal(int signal){
-     int j;
+     int j,k;
      preamble();
      PORTC.F0=1;
      delay3ms();
@@ -141,7 +209,24 @@ void transmitSignal(int signal){
       delay500us();
  }
  PORTC.F0=0;
-   initial();
+
+//prepares for acknowledgement
+   decoded_signal=17;
+   for(k=0; k<200; k++){
+   if(PORTD.F4==1){
+   reception();
+   }
+   delay20us();
+   }
+
+   if(decoded_signal==lastSignal){
+   ack(channel,"ON");
+   }else{
+   ack(channel,"OFF");
+   }
+   
+   delay_ms(1000);
+      initial();
 }
 
 
@@ -149,6 +234,7 @@ void transmitSignal(int signal){
 int encodeSignal(int rawSignal){
 int i;
 int encodedSignal=0x00;
+lastSignal=rawSignal;
     for(i=0; i<4; i++){
       if((rawSignal&0x08)==0x08){
               encodedSignal^=0x02;
