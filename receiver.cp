@@ -14,6 +14,8 @@ void lookup(int channel){
  case 0: PORTD.F0^=1;
  if(PORTD.F0==1){
  transmitSignal(encodeSignal(0));
+ }else{
+ transmitSignal(11010101);
  }
  break;
 
@@ -21,10 +23,16 @@ void lookup(int channel){
  if(PORTD.F1==1){
  transmitSignal(encodeSignal(1));
  }
+ else{
+ transmitSignal(~encodeSignal(1));
+ }
  break;
  case 2: PORTD.F2^=1;
  if(PORTD.F2==1){
  transmitSignal(encodeSignal(2));
+ }
+ else{
+ transmitSignal(~encodeSignal(2));
  }
  break;
  case 3: PORTD.F3^=1;

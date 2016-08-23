@@ -18,12 +18,15 @@ char msg2[]=" TRANSMITTING...";
 char msg3[]=" IS ";
 char msg4[]=" PRESS ANY KEY " ;
 char msg5[]="  TO TRANSMIT ";
+char msg6[]="ACK NOT RECEIVED";
 int counter;
 int good;
 int bitManipulate;
 int test;
 int lastSignal;
 int decoded_signal ;
+int state;
+int acksignal;
 void reception();
 char *channel;
 
@@ -145,6 +148,8 @@ void reception(){
  }
 
  if(good==1){
+ int shift=1;
+ acksignal=0;
  while(1){
  if(PORTD.F4==0){
  delay725us();
@@ -153,6 +158,7 @@ void reception(){
  test=i%2;
 
  if(PORTD.F4==1){
+ acksignal^=shift;
  if(test==0){
  decoded_signal^=0x01;
  decoded_signal<<=1;
@@ -167,7 +173,7 @@ void reception(){
  }
  PORTD.F5=0;
  }
-
+ shift<<=1;
  delay500us();
 
  }
@@ -223,7 +229,12 @@ void transmitSignal(int signal){
  if(decoded_signal==lastSignal){
  ack(channel,"ON");
  }else{
+ if(acksignal==11010101){
  ack(channel,"OFF");
+ }else{
+ Lcd_Cmd(_LCD_CLEAR);
+ Lcd_Out(1,1,msg6);
+ }
  }
 
  delay_ms(1000);
@@ -236,6 +247,7 @@ int encodeSignal(int rawSignal){
 int i;
 int encodedSignal=0x00;
 lastSignal=rawSignal;
+state=rawSignal;
  for(i=0; i<4; i++){
  if((rawSignal&0x08)==0x08){
  encodedSignal^=0x02;

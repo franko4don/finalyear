@@ -164,6 +164,7 @@ ackdt
 ackdt_bit
 acken
 acken_bit
+acksignal
 ackstat
 ackstat_bit
 acos
@@ -599,6 +600,7 @@ msg2
 msg3
 msg4
 msg5
+msg6
 mul_16x16_s
 mul_16x16_u
 mul_32x32_fp
@@ -1127,6 +1129,7 @@ sspm3_bit
 sspov
 sspov_bit
 sspstat
+state
 status
 strcat
 strchr
